@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Markdown基本语法</title>
+    <url>/2022/03/25/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="@标题@"></a>@标题@</h2><pre><code># 一级标题
+## 二级标题
+</code></pre>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<p>以此类推</p>
+<hr>
+<h2 id="列表"><a href="#列表" class="headerlink" title="@列表@"></a>@列表@</h2><ol>
+<li>内容一</li>
+<li>内容二</li>
+<li>内容三</li>
+</ol>
+<ul>
+<li>abcd</li>
+<li>abcd</li>
+<li>abcd</li>
+</ul>
+<p>等多种组合嵌套</p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="@代码@"></a>@代码@</h2><p>表示方法如下：<br><img src="/../images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220325221110.png"><br><strong>示例</strong><br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs 语言">代码<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="表格"><a href="#表格" class="headerlink" title="@表格@"></a>@表格@</h2><p>表示方法如下：<br><img src="/../images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220325222336.png"><br><strong>示例</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">列1</th>
+<th align="center">列2</th>
+<th align="right">列3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">a</td>
+<td align="center">b</td>
+<td align="right">c</td>
+</tr>
+<tr>
+<td align="left">d</td>
+<td align="center">e</td>
+<td align="right">f</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="图片"><a href="#图片" class="headerlink" title="@图片@"></a>@图片@</h2><p>表示方法如下：<br><img src="/../images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220325223138.png"><br><em><strong>示例</strong></em><br><img src="http://5b0988e595225.cdn.sohucs.com/images/20190716/7375d1ae6f264ac6806a7020e04896bc.jpeg" alt="百度logo"></p>
+<hr>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="@超链接@"></a>@超链接@</h2><p>表示方法如下：<br><img src="/../images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220325225300.png"><br><em><strong>示例</strong></em></p>
+<p><a href="https://www.bilibili.com/video/BV1LE411k7Gw?spm_id_from=333.999.0.0">笔记参考</a></p>
+<hr>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的博客搭建成功啦！</title>
+    <url>/2022/03/25/hello-world/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>动态</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客搭建过程中所碰到的问题</title>
+    <url>/2022/03/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%89%80%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="node-ji安装时碰到的问题"><a href="#node-ji安装时碰到的问题" class="headerlink" title="node.ji安装时碰到的问题"></a>node.ji安装时碰到的问题</h2><p>不要点安装附加工具那个选项！</p>
+<hr>
+<h2 id="npm安装hexo时遇到的问题"><a href="#npm安装hexo时遇到的问题" class="headerlink" title="npm安装hexo时遇到的问题"></a>npm安装hexo时遇到的问题</h2><ol>
+<li>人们遇到最多的是连接不成功的问题，换<strong>镜像</strong>下载就可以了。</li>
+<li>我在安装过程中遇到的问题是：需要管理员权限才能安装，解决方法：<ul>
+<li>在开始菜单下找到 Git Bash,右键以管理员身份运行。</li>
+<li>然后切换目录到 Blog 的根目录下即可进行 hexo 的安装。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="切换-next-主题时遇到的问题"><a href="#切换-next-主题时遇到的问题" class="headerlink" title="切换 next 主题时遇到的问题"></a>切换 next 主题时遇到的问题</h2><p>按操作换为 next 主题后，页面出现乱码，解决办法：<br>hexo在5.0之后把 swig 给删除了需要自己手动安装:<br>    <figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs Markdown">npm i hexo-renderer-swig<br></code></pre></td></tr></table></figure></p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/lanhualan/p/14588669.html">https://www.cnblogs.com/lanhualan/p/14588669.html</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSRF</title>
+    <url>/2022/04/03/csrf/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>介绍CSRF相关内容</p>
+<span id="more"></span>
+
+<h2 id="CSRF-跨站请求伪造-概述"><a href="#CSRF-跨站请求伪造-概述" class="headerlink" title="CSRF(跨站请求伪造)概述"></a>CSRF(跨站请求伪造)概述</h2><p>Cross-site request forgery 简称为“CSRF”，在CSRF的攻击场景中攻击者会伪造一个请求（这个请求一般是一个链接），然后欺骗目标用户进行点击，用户一旦点击了这个请求，整个攻击就完成了。所以CSRF攻击也成为”one click”攻击。</p>
+<p><img src="/../images/86d6277f9e2f0708efe75721e024b899a901f235.webp" alt="CSRF"></p>
+<h2 id="CSRF与XSS的区别"><a href="#CSRF与XSS的区别" class="headerlink" title="CSRF与XSS的区别"></a>CSRF与XSS的区别</h2><p>CSRF是借用户的权限完成攻击，攻击者并没有拿到用户的权限，而XSS是直接盗取到了用户的权限，然后实施破坏。</p>
+<h2 id="如何防止CSRF攻击"><a href="#如何防止CSRF攻击" class="headerlink" title="如何防止CSRF攻击"></a>如何防止CSRF攻击</h2><ul>
+<li>对敏感信息的操作增加安全的token；</li>
+<li>对敏感信息的操作增加安全的验证码；</li>
+<li>对敏感信息的操作实施安全的逻辑流程，比如修改密码时，需要先校验旧密码等。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>crsf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux命令</title>
+    <url>/2022/04/03/2022-04-03/</url>
+    <content><![CDATA[<h2 id="limux命令"><a href="#limux命令" class="headerlink" title="limux命令"></a>limux命令</h2><h3 id="96-96"><a href="#96-96" class="headerlink" title="&#96;&#96;"></a>&#96;&#96;</h3><p>linux中将&#96;&#96;(反引号)里的内容作为系统命令来执行。</p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上。</p>
+<h3 id="tac"><a href="#tac" class="headerlink" title="tac"></a>tac</h3><p><em><strong>cat</strong></em>  倒过来写的，作用是将文件全部内容从尾到头反向连续输出到标准输出(屏幕)上。</p>
+<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>Linux pwd（英文全拼：print work directory） 命令用于显示工作目录。</p>
+<ul>
+<li>执行 pwd 指令可立刻得知您目前所在的工作目录的绝对路径名称。</li>
+</ul>
+<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>Linux ls（英文全拼：list files）命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>Linux id命令用于显示用户的ID，以及所属群组的ID。</p>
+<ul>
+<li>id会显示用户以及所属群组的实际与有效ID。若两个ID相同，则仅显示实际ID。若仅指定用户名称，则显示目前用户的ID。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+</search>
