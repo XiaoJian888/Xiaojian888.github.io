@@ -6,7 +6,7 @@
   <link href="http://xiaojian.com/atom.xml" rel="self"/>
   
   <link href="http://xiaojian.com/"/>
-  <updated>2022-04-03T11:53:45.473Z</updated>
+  <updated>2022-04-06T05:57:35.112Z</updated>
   <id>http://xiaojian.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>理解NAT模式和桥接模式</title>
+    <link href="http://xiaojian.com/2022/04/06/2022-04-06/"/>
+    <id>http://xiaojian.com/2022/04/06/2022-04-06/</id>
+    <published>2022-04-06T05:27:00.000Z</published>
+    <updated>2022-04-06T05:57:35.112Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>实验室电脑搭建靶机过程中，面临两个网络配置的选择：</p><ul><li><em><strong>NAT模式</strong></em></li><li><em><strong>桥接模式</strong></em></li></ul><span id="more"></span><h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a><strong>NAT模式</strong></h3><p>所谓nat模式，就是虚拟系统会通过宿主机的网络来访问外网，而这里的宿主机相当于有两个网卡，一个是真实网卡，一个是虚拟网卡，真实网卡相当于链接了现实世界的真实路由器，而宿主机的虚拟网卡，相当于链接了一个可以认为是虚拟交换机（<font color="red">这个虚拟交换机他同时链接了虚拟系统（linux）和宿主机</font>）,这个时候的虚拟网络想访问外网，就必须通过宿主机的IP地址，而外面看来也确实是宿主机的IP地址（<font color="red">实则是虚拟机访问的！！</font>），完全看不到虚拟网络局域的内部形式，而这个时候linux和宿主机和虚拟交换机形成一个网段，宿主机和真实路由形成一个网段！！</p><p><img src="/../images/NAT%E6%A8%A1%E5%BC%8F.png" alt="NAT模式"></p><p>优点:不需要自己来手动分配IP地址和子网掩码，只要宿主机能访问网络，他就能访问网络。（<font color="red">注意，虚拟机可以ping宿主机，宿主机ping不了虚拟机</font>）</p><hr><h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a><strong>桥接模式</strong></h3><p>这个相当于在一个局域网内创立了一个单独的主机，他可以访问这个局域网内的所有的主机，但是需要手动来配置IP地址，子网掩码，并且他是和真实主机在同一个网段（<font color="red">nat是两个网段</font>），这个模式里，虚拟机和宿主机可以互相ping通。</p><p><img src="/../images/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F.png" alt="NAT模式"></p><h4 id="桥接模式设置"><a href="#桥接模式设置" class="headerlink" title="桥接模式设置"></a>桥接模式设置</h4><p>打开vmware虚拟机，打开在选项栏的“编辑”下的“虚拟网络编辑器”，点击右下角更改设置。选择VMnet0（<font color="red">桥接模式</font>）,接着在下面VMnet信息设置中选择桥接模式，并选择已桥接至一个可用网卡，点击确定，设置成功！</p><p><em><strong>参考</strong></em></p><blockquote><p><a href="https://www.cnblogs.com/Booker808-java/p/7822763.html">https://www.cnblogs.com/Booker808-java/p/7822763.html</a><br><a href="https://blog.csdn.net/qq_43455948/article/details/99960284">https://blog.csdn.net/qq_43455948/article/details/99960284</a></p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;实验室电脑搭建靶机过程中，面临两个网络配置的选择：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;NAT模式&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;桥接模式&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiaojian.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Virtual Machine" scheme="http://xiaojian.com/tags/Virtual-Machine/"/>
+    
+  </entry>
   
   <entry>
     <title>linux命令</title>
