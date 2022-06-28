@@ -6,7 +6,7 @@
   <link href="http://xiaojian.com/atom.xml" rel="self"/>
   
   <link href="http://xiaojian.com/"/>
-  <updated>2022-04-13T06:05:12.292Z</updated>
+  <updated>2022-06-28T08:21:10.537Z</updated>
   <id>http://xiaojian.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shell编程备份数据库</title>
+    <link href="http://xiaojian.com/2022/06/28/shell%E7%BC%96%E7%A8%8B%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://xiaojian.com/2022/06/28/shell%E7%BC%96%E7%A8%8B%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
+    <published>2022-06-28T07:36:00.000Z</published>
+    <updated>2022-06-28T08:21:10.537Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li><em><strong>需求</strong></em></li></ul><ol><li>每天凌晨2：10备份数据库 *** 到&#x2F;data&#x2F;backup&#x2F;db</li><li>备份开始和备份结束能够给出相应的提示信息。</li><li>备份后的文件要求以备份时间为文件名，并打包成.tar.gz的形式，比如：2022-06-28_154450.tar.gz</li><li>在备份的同时，检查是否有10天前备份的数据库文件，如果有就将其删除。</li></ol><span id="more"></span><h2 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h2><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-comment">#完成数据库的定时备份</span><br><span class="hljs-comment">#路径的备份</span><br>BACKUP=/data/backup/db<br><span class="hljs-comment">#当前的时间作为文件名</span><br>DATATIME=$(<span class="hljs-built_in">date</span>)<br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$DATATIME</span><br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;===========开始备份=============&quot;</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;==========备份的路径是 <span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span>.tar.gz&quot;</span><br><br><span class="hljs-comment">#主机</span><br>HOST=localhost<br><span class="hljs-comment">#用户名</span><br>DB_USER=root<br><span class="hljs-comment">#密码</span><br>DB_PWD=root<br><span class="hljs-comment">#备份数据库名</span><br>DATABASE=数据库名<br><span class="hljs-comment">#创建备份的路径</span><br><span class="hljs-comment">#如果备份的路径文件夹存在，就使用，否则就创建</span><br>[ ! -d <span class="hljs-string">&quot;BACKUP/<span class="hljs-variable">$DATETIME</span>&quot;</span> ] &amp;&amp; <span class="hljs-built_in">mkdir</span> -p <span class="hljs-string">&quot;<span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span>&quot;</span><br><span class="hljs-comment">#执行mysql的备份数据库指令</span><br>mysqldump -u<span class="hljs-variable">$&#123;DB_USER&#125;</span> -p<span class="hljs-variable">$&#123;DB_PWD&#125;</span> --host=<span class="hljs-variable">$HOST</span> <span class="hljs-variable">$DATABASE</span> | gzip &gt; <span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span>/<span class="hljs-variable">$DATETIME</span>.sql.gz<br><span class="hljs-comment">#打包备份文件</span><br><span class="hljs-built_in">cd</span> <span class="hljs-variable">$BACKUP</span><br>tar -zcvf <span class="hljs-variable">$DATETIME</span>.tar.gz <span class="hljs-variable">$DATETIME</span><br><span class="hljs-comment">#删除临时目录</span><br><span class="hljs-built_in">rm</span> -rf <span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span><br><br><span class="hljs-comment">#删除十天前的备份文件</span><br>find <span class="hljs-variable">$BACKUP</span> -mtime +10 -name <span class="hljs-string">&quot;*. tar. gz&quot;</span> -<span class="hljs-built_in">exec</span> <span class="hljs-built_in">rm</span> -rf &#123;&#125; \;<br></code></pre></td></tr></table></figure></code></pre><h2 id="在crontab中的配置"><a href="#在crontab中的配置" class="headerlink" title="在crontab中的配置"></a>在crontab中的配置</h2><pre><code><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">10 </span><span class="hljs-number">2</span> * * * /<span class="hljs-keyword">usr</span>/sbin/mysql_db_backup.sh<br></code></pre></td></tr></table></figure></code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;需求&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;每天凌晨2：10备份数据库 *** 到&amp;#x2F;data&amp;#x2F;backup&amp;#x2F;db&lt;/li&gt;
+&lt;li&gt;备份开始和备份结束能够给出相应的提示信息。&lt;/li&gt;
+&lt;li&gt;备份后的文件要求以备份时间为文件名，并打包成.tar.gz的形式，比如：2022-06-28_154450.tar.gz&lt;/li&gt;
+&lt;li&gt;在备份的同时，检查是否有10天前备份的数据库文件，如果有就将其删除。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://xiaojian.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="shell" scheme="http://xiaojian.com/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>二次注入</title>
