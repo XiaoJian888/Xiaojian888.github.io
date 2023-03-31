@@ -24,6 +24,17 @@
       </tags>
   </entry>
   <entry>
+    <title>回归</title>
+    <url>/2022/03/31/2023-03-31/</url>
+    <content><![CDATA[<h2 id="我回来了"><a href="#我回来了" class="headerlink" title="我回来了"></a>我回来了</h2>]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>动态</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>理解NAT模式和桥接模式</title>
     <url>/2022/04/06/2022-04-06/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>实验室电脑搭建靶机过程中，面临两个网络配置的选择：</p>
@@ -144,24 +155,6 @@
       </tags>
   </entry>
   <entry>
-    <title>二次注入</title>
-    <url>/2022/04/13/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="二次注入原理"><a href="#二次注入原理" class="headerlink" title="二次注入原理"></a>二次注入原理</h2><ul>
-<li>二次注入的原理，在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，但是addslashes有一个特点就是虽然参数在过滤后会添加 “\” 进行转义，但是“\”并不会插入到数据库中，在写入数据库的时候还是保留了原来的数据。</li>
-<li>在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中取出了脏数据，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
-</ul>
-<p><strong>可以用来</strong>(<font color="red">绕过转义注入和魔术引号</font>)</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code><figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">注册用户: insert xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>过滤: xiaojian <span class="hljs-keyword">select</span>\&#x27; <span class="hljs-built_in">union</span><br>进入数据库: xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>修改用户: <span class="hljs-keyword">update</span> xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br></code></pre></td></tr></table></figure>
-</code></pre>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Sql Inject</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>sql注入——注释相关</title>
     <url>/2022/07/04/sql%E6%B3%A8%E5%85%A5%E6%B3%A8%E9%87%8A%E7%AC%A6/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SQL注入中，注释#、 –+、 –%20、 %23</p>
@@ -230,6 +223,24 @@
       </categories>
       <tags>
         <tag>问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二次注入</title>
+    <url>/2022/04/13/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="二次注入原理"><a href="#二次注入原理" class="headerlink" title="二次注入原理"></a>二次注入原理</h2><ul>
+<li>二次注入的原理，在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，但是addslashes有一个特点就是虽然参数在过滤后会添加 “\” 进行转义，但是“\”并不会插入到数据库中，在写入数据库的时候还是保留了原来的数据。</li>
+<li>在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中取出了脏数据，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
+</ul>
+<p><strong>可以用来</strong>(<font color="red">绕过转义注入和魔术引号</font>)</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code><figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">注册用户: insert xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>过滤: xiaojian <span class="hljs-keyword">select</span>\&#x27; <span class="hljs-built_in">union</span><br>进入数据库: xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>修改用户: <span class="hljs-keyword">update</span> xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br></code></pre></td></tr></table></figure>
+</code></pre>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Sql Inject</tag>
       </tags>
   </entry>
 </search>
