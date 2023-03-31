@@ -24,6 +24,35 @@
       </tags>
   </entry>
   <entry>
+    <title>理解NAT模式和桥接模式</title>
+    <url>/2022/04/06/2022-04-06/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>实验室电脑搭建靶机过程中，面临两个网络配置的选择：</p>
+<ul>
+<li><em><strong>NAT模式</strong></em></li>
+<li><em><strong>桥接模式</strong></em></li>
+</ul>
+<span id="more"></span>
+
+<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a><strong>NAT模式</strong></h3><p>所谓nat模式，就是虚拟系统会通过宿主机的网络来访问外网，而这里的宿主机相当于有两个网卡，一个是真实网卡，一个是虚拟网卡，真实网卡相当于链接了现实世界的真实路由器，而宿主机的虚拟网卡，相当于链接了一个可以认为是虚拟交换机（<font color="red">这个虚拟交换机他同时链接了虚拟系统（linux）和宿主机</font>）,这个时候的虚拟网络想访问外网，就必须通过宿主机的IP地址，而外面看来也确实是宿主机的IP地址（<font color="red">实则是虚拟机访问的！！</font>），完全看不到虚拟网络局域的内部形式，而这个时候linux和宿主机和虚拟交换机形成一个网段，宿主机和真实路由形成一个网段！！</p>
+<p><img src="/../images/NAT%E6%A8%A1%E5%BC%8F.png" alt="NAT模式"></p>
+<p>优点:不需要自己来手动分配IP地址和子网掩码，只要宿主机能访问网络，他就能访问网络。（<font color="red">注意，虚拟机可以ping宿主机，宿主机ping不了虚拟机</font>）</p>
+<hr>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a><strong>桥接模式</strong></h3><p>这个相当于在一个局域网内创立了一个单独的主机，他可以访问这个局域网内的所有的主机，但是需要手动来配置IP地址，子网掩码，并且他是和真实主机在同一个网段（<font color="red">nat是两个网段</font>），这个模式里，虚拟机和宿主机可以互相ping通。</p>
+<p><img src="/../images/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F.png" alt="NAT模式"></p>
+<h4 id="桥接模式设置"><a href="#桥接模式设置" class="headerlink" title="桥接模式设置"></a>桥接模式设置</h4><p>打开vmware虚拟机，打开在选项栏的“编辑”下的“虚拟网络编辑器”，点击右下角更改设置。选择VMnet0（<font color="red">桥接模式</font>）,接着在下面VMnet信息设置中选择桥接模式，并选择已桥接至一个可用网卡，点击确定，设置成功！</p>
+<p><em><strong>参考</strong></em></p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/Booker808-java/p/7822763.html">https://www.cnblogs.com/Booker808-java/p/7822763.html</a><br><a href="https://blog.csdn.net/qq_43455948/article/details/99960284">https://blog.csdn.net/qq_43455948/article/details/99960284</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Virtual Machine</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown基本语法</title>
     <url>/2022/03/25/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="@标题@"></a>@标题@</h2><pre><code># 一级标题
@@ -85,32 +114,11 @@
       </tags>
   </entry>
   <entry>
-    <title>理解NAT模式和桥接模式</title>
-    <url>/2022/04/06/2022-04-06/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>实验室电脑搭建靶机过程中，面临两个网络配置的选择：</p>
-<ul>
-<li><em><strong>NAT模式</strong></em></li>
-<li><em><strong>桥接模式</strong></em></li>
-</ul>
-<span id="more"></span>
-
-<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a><strong>NAT模式</strong></h3><p>所谓nat模式，就是虚拟系统会通过宿主机的网络来访问外网，而这里的宿主机相当于有两个网卡，一个是真实网卡，一个是虚拟网卡，真实网卡相当于链接了现实世界的真实路由器，而宿主机的虚拟网卡，相当于链接了一个可以认为是虚拟交换机（<font color="red">这个虚拟交换机他同时链接了虚拟系统（linux）和宿主机</font>）,这个时候的虚拟网络想访问外网，就必须通过宿主机的IP地址，而外面看来也确实是宿主机的IP地址（<font color="red">实则是虚拟机访问的！！</font>），完全看不到虚拟网络局域的内部形式，而这个时候linux和宿主机和虚拟交换机形成一个网段，宿主机和真实路由形成一个网段！！</p>
-<p><img src="/../images/NAT%E6%A8%A1%E5%BC%8F.png" alt="NAT模式"></p>
-<p>优点:不需要自己来手动分配IP地址和子网掩码，只要宿主机能访问网络，他就能访问网络。（<font color="red">注意，虚拟机可以ping宿主机，宿主机ping不了虚拟机</font>）</p>
-<hr>
-<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a><strong>桥接模式</strong></h3><p>这个相当于在一个局域网内创立了一个单独的主机，他可以访问这个局域网内的所有的主机，但是需要手动来配置IP地址，子网掩码，并且他是和真实主机在同一个网段（<font color="red">nat是两个网段</font>），这个模式里，虚拟机和宿主机可以互相ping通。</p>
-<p><img src="/../images/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F.png" alt="NAT模式"></p>
-<h4 id="桥接模式设置"><a href="#桥接模式设置" class="headerlink" title="桥接模式设置"></a>桥接模式设置</h4><p>打开vmware虚拟机，打开在选项栏的“编辑”下的“虚拟网络编辑器”，点击右下角更改设置。选择VMnet0（<font color="red">桥接模式</font>）,接着在下面VMnet信息设置中选择桥接模式，并选择已桥接至一个可用网卡，点击确定，设置成功！</p>
-<p><em><strong>参考</strong></em></p>
-<blockquote>
-<p><a href="https://www.cnblogs.com/Booker808-java/p/7822763.html">https://www.cnblogs.com/Booker808-java/p/7822763.html</a><br><a href="https://blog.csdn.net/qq_43455948/article/details/99960284">https://blog.csdn.net/qq_43455948/article/details/99960284</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
+    <title>我的博客搭建成功啦！</title>
+    <url>/2022/03/25/hello-world/</url>
+    <content><![CDATA[]]></content>
       <tags>
-        <tag>Virtual Machine</tag>
+        <tag>动态</tag>
       </tags>
   </entry>
   <entry>
@@ -136,11 +144,40 @@
       </tags>
   </entry>
   <entry>
-    <title>我的博客搭建成功啦！</title>
-    <url>/2022/03/25/hello-world/</url>
-    <content><![CDATA[]]></content>
+    <title>二次注入</title>
+    <url>/2022/04/13/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="二次注入原理"><a href="#二次注入原理" class="headerlink" title="二次注入原理"></a>二次注入原理</h2><ul>
+<li>二次注入的原理，在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，但是addslashes有一个特点就是虽然参数在过滤后会添加 “\” 进行转义，但是“\”并不会插入到数据库中，在写入数据库的时候还是保留了原来的数据。</li>
+<li>在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中取出了脏数据，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
+</ul>
+<p><strong>可以用来</strong>(<font color="red">绕过转义注入和魔术引号</font>)</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code><figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">注册用户: insert xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>过滤: xiaojian <span class="hljs-keyword">select</span>\&#x27; <span class="hljs-built_in">union</span><br>进入数据库: xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>修改用户: <span class="hljs-keyword">update</span> xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br></code></pre></td></tr></table></figure>
+</code></pre>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
       <tags>
-        <tag>动态</tag>
+        <tag>Sql Inject</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sql注入——注释相关</title>
+    <url>/2022/07/04/sql%E6%B3%A8%E5%85%A5%E6%B3%A8%E9%87%8A%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SQL注入中，注释#、 –+、 –%20、 %23</p>
+<span id="more"></span>
+<ol>
+<li><h1 id="和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。"><a href="#和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。" class="headerlink" title="和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。"></a>和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。</h1></li>
+<li>也可以使用–%20，把空格转换为urlencode编码格式，也不会报错。同理把#变成%23,也不报错。</li>
+<li>如果是post请求，则可以直接使用#来进行闭合。常见的就是表单注入，如我们在后台登录框中进行注入。</li>
+<li>为什么–后面必须要有空格，而#后面就不需要？<br>因为使用–注释时，需要使用空格，才能形成有效的sql语句，而#后面可以有空格，也可以没有，sql就是这么规定的，记住就行了。<br>因为不加空格，–直接和系统自动生成的单引号连接在了一起，会被认为是一个关键词，无法注释掉系统自动生成的单引号。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>sql注入</category>
+      </categories>
+      <tags>
+        <tag>MySQL注释符</tag>
       </tags>
   </entry>
   <entry>
@@ -167,43 +204,6 @@
       </categories>
       <tags>
         <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sql注入——注释相关</title>
-    <url>/2022/07/04/sql%E6%B3%A8%E5%85%A5%E6%B3%A8%E9%87%8A%E7%AC%A6/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SQL注入中，注释#、 –+、 –%20、 %23</p>
-<span id="more"></span>
-<ol>
-<li><h1 id="和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。"><a href="#和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。" class="headerlink" title="和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。"></a>和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。</h1></li>
-<li>也可以使用–%20，把空格转换为urlencode编码格式，也不会报错。同理把#变成%23,也不报错。</li>
-<li>如果是post请求，则可以直接使用#来进行闭合。常见的就是表单注入，如我们在后台登录框中进行注入。</li>
-<li>为什么–后面必须要有空格，而#后面就不需要？<br>因为使用–注释时，需要使用空格，才能形成有效的sql语句，而#后面可以有空格，也可以没有，sql就是这么规定的，记住就行了。<br>因为不加空格，–直接和系统自动生成的单引号连接在了一起，会被认为是一个关键词，无法注释掉系统自动生成的单引号。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>sql注入</category>
-      </categories>
-      <tags>
-        <tag>MySQL注释符</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二次注入</title>
-    <url>/2022/04/13/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="二次注入原理"><a href="#二次注入原理" class="headerlink" title="二次注入原理"></a>二次注入原理</h2><ul>
-<li>二次注入的原理，在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，但是addslashes有一个特点就是虽然参数在过滤后会添加 “\” 进行转义，但是“\”并不会插入到数据库中，在写入数据库的时候还是保留了原来的数据。</li>
-<li>在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中取出了脏数据，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
-</ul>
-<p><strong>可以用来</strong>(<font color="red">绕过转义注入和魔术引号</font>)</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code><figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">注册用户: insert xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>过滤: xiaojian <span class="hljs-keyword">select</span>\&#x27; <span class="hljs-built_in">union</span><br>进入数据库: xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>修改用户: <span class="hljs-keyword">update</span> xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br></code></pre></td></tr></table></figure>
-</code></pre>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Sql Inject</tag>
       </tags>
   </entry>
   <entry>
