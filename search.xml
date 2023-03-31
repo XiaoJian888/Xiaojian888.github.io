@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>linux命令</title>
-    <url>/2022/04/03/2022-04-03/</url>
-    <content><![CDATA[<h2 id="limux命令"><a href="#limux命令" class="headerlink" title="limux命令"></a>limux命令</h2><h3 id="96-96"><a href="#96-96" class="headerlink" title="&#96;&#96;"></a>&#96;&#96;</h3><p>linux中将&#96;&#96;(反引号)里的内容作为系统命令来执行。</p>
-<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上。</p>
-<h3 id="tac"><a href="#tac" class="headerlink" title="tac"></a>tac</h3><p><em><strong>cat</strong></em>  倒过来写的，作用是将文件全部内容从尾到头反向连续输出到标准输出(屏幕)上。</p>
-<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>Linux pwd（英文全拼：print work directory） 命令用于显示工作目录。</p>
-<ul>
-<li>执行 pwd 指令可立刻得知您目前所在的工作目录的绝对路径名称。</li>
-</ul>
-<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>Linux ls（英文全拼：list files）命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
-<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>Linux id命令用于显示用户的ID，以及所属群组的ID。</p>
-<ul>
-<li>id会显示用户以及所属群组的实际与有效ID。若两个ID相同，则仅显示实际ID。若仅指定用户名称，则显示目前用户的ID。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>理解NAT模式和桥接模式</title>
     <url>/2022/04/06/2022-04-06/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>实验室电脑搭建靶机过程中，面临两个网络配置的选择：</p>
@@ -53,14 +30,26 @@
       </tags>
   </entry>
   <entry>
-    <title>回归</title>
-    <url>/2023/03/31/2023-03-31/</url>
-    <content><![CDATA[<h2 id="I’m-back"><a href="#I’m-back" class="headerlink" title="I’m back!"></a>I’m back!</h2>]]></content>
+    <title>linux命令</title>
+    <url>/2022/04/03/2022-04-03/</url>
+    <content><![CDATA[<h2 id="limux命令"><a href="#limux命令" class="headerlink" title="limux命令"></a>limux命令</h2><h3 id="96-96"><a href="#96-96" class="headerlink" title="&#96;&#96;"></a>&#96;&#96;</h3><p>linux中将&#96;&#96;(反引号)里的内容作为系统命令来执行。</p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上。</p>
+<h3 id="tac"><a href="#tac" class="headerlink" title="tac"></a>tac</h3><p><em><strong>cat</strong></em>  倒过来写的，作用是将文件全部内容从尾到头反向连续输出到标准输出(屏幕)上。</p>
+<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>Linux pwd（英文全拼：print work directory） 命令用于显示工作目录。</p>
+<ul>
+<li>执行 pwd 指令可立刻得知您目前所在的工作目录的绝对路径名称。</li>
+</ul>
+<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>Linux ls（英文全拼：list files）命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>Linux id命令用于显示用户的ID，以及所属群组的ID。</p>
+<ul>
+<li>id会显示用户以及所属群组的实际与有效ID。若两个ID相同，则仅显示实际ID。若仅指定用户名称，则显示目前用户的ID。</li>
+</ul>
+]]></content>
       <categories>
-        <category>日志</category>
+        <category>笔记</category>
       </categories>
       <tags>
-        <tag>动态</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -155,6 +144,32 @@
       </tags>
   </entry>
   <entry>
+    <title>shell编程备份数据库</title>
+    <url>/2022/06/28/shell%E7%BC%96%E7%A8%8B%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li><em><strong>需求</strong></em></li>
+</ul>
+<ol>
+<li>每天凌晨2：10备份数据库 *** 到&#x2F;data&#x2F;backup&#x2F;db</li>
+<li>备份开始和备份结束能够给出相应的提示信息。</li>
+<li>备份后的文件要求以备份时间为文件名，并打包成.tar.gz的形式，比如：2022-06-28_154450.tar.gz</li>
+<li>在备份的同时，检查是否有10天前备份的数据库文件，如果有就将其删除。</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h2><pre><code><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-comment">#完成数据库的定时备份</span><br><span class="hljs-comment">#路径的备份</span><br>BACKUP=/data/backup/db<br><span class="hljs-comment">#当前的时间作为文件名</span><br>DATATIME=$(<span class="hljs-built_in">date</span>)<br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$DATATIME</span><br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;===========开始备份=============&quot;</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;==========备份的路径是 <span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span>.tar.gz&quot;</span><br><br><span class="hljs-comment">#主机</span><br>HOST=localhost<br><span class="hljs-comment">#用户名</span><br>DB_USER=root<br><span class="hljs-comment">#密码</span><br>DB_PWD=root<br><span class="hljs-comment">#备份数据库名</span><br>DATABASE=数据库名<br><span class="hljs-comment">#创建备份的路径</span><br><span class="hljs-comment">#如果备份的路径文件夹存在，就使用，否则就创建</span><br>[ ! -d <span class="hljs-string">&quot;BACKUP/<span class="hljs-variable">$DATETIME</span>&quot;</span> ] &amp;&amp; <span class="hljs-built_in">mkdir</span> -p <span class="hljs-string">&quot;<span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span>&quot;</span><br><span class="hljs-comment">#执行mysql的备份数据库指令</span><br>mysqldump -u<span class="hljs-variable">$&#123;DB_USER&#125;</span> -p<span class="hljs-variable">$&#123;DB_PWD&#125;</span> --host=<span class="hljs-variable">$HOST</span> <span class="hljs-variable">$DATABASE</span> | gzip &gt; <span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span>/<span class="hljs-variable">$DATETIME</span>.sql.gz<br><span class="hljs-comment">#打包备份文件</span><br><span class="hljs-built_in">cd</span> <span class="hljs-variable">$BACKUP</span><br>tar -zcvf <span class="hljs-variable">$DATETIME</span>.tar.gz <span class="hljs-variable">$DATETIME</span><br><span class="hljs-comment">#删除临时目录</span><br><span class="hljs-built_in">rm</span> -rf <span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span><br><br><span class="hljs-comment">#删除十天前的备份文件</span><br>find <span class="hljs-variable">$BACKUP</span> -mtime +10 -name <span class="hljs-string">&quot;*. tar. gz&quot;</span> -<span class="hljs-built_in">exec</span> <span class="hljs-built_in">rm</span> -rf &#123;&#125; \;<br></code></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="在crontab中的配置"><a href="#在crontab中的配置" class="headerlink" title="在crontab中的配置"></a>在crontab中的配置</h2><pre><code><figure class="highlight basic"><table><tr><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">10 </span><span class="hljs-number">2</span> * * * /<span class="hljs-keyword">usr</span>/sbin/mysql_db_backup.sh<br></code></pre></td></tr></table></figure>
+</code></pre>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客搭建过程中所碰到的问题</title>
     <url>/2022/03/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%89%80%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="node-ji安装时碰到的问题"><a href="#node-ji安装时碰到的问题" class="headerlink" title="node.ji安装时碰到的问题"></a>node.ji安装时碰到的问题</h2><p>不要点安装附加工具那个选项！</p>
@@ -181,24 +196,6 @@
       </tags>
   </entry>
   <entry>
-    <title>二次注入</title>
-    <url>/2022/04/13/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="二次注入原理"><a href="#二次注入原理" class="headerlink" title="二次注入原理"></a>二次注入原理</h2><ul>
-<li>二次注入的原理，在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，但是addslashes有一个特点就是虽然参数在过滤后会添加 “\” 进行转义，但是“\”并不会插入到数据库中，在写入数据库的时候还是保留了原来的数据。</li>
-<li>在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中取出了脏数据，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
-</ul>
-<p><strong>可以用来</strong>(<font color="red">绕过转义注入和魔术引号</font>)</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code><figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">注册用户: insert xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>过滤: xiaojian <span class="hljs-keyword">select</span>\&#x27; <span class="hljs-built_in">union</span><br>进入数据库: xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>修改用户: <span class="hljs-keyword">update</span> xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br></code></pre></td></tr></table></figure>
-</code></pre>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Sql Inject</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>sql注入——注释相关</title>
     <url>/2022/07/04/sql%E6%B3%A8%E5%85%A5%E6%B3%A8%E9%87%8A%E7%AC%A6/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SQL注入中，注释#、 –+、 –%20、 %23</p>
@@ -218,29 +215,32 @@
       </tags>
   </entry>
   <entry>
-    <title>shell编程备份数据库</title>
-    <url>/2022/06/28/shell%E7%BC%96%E7%A8%8B%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li><em><strong>需求</strong></em></li>
+    <title>二次注入</title>
+    <url>/2022/04/13/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="二次注入原理"><a href="#二次注入原理" class="headerlink" title="二次注入原理"></a>二次注入原理</h2><ul>
+<li>二次注入的原理，在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，但是addslashes有一个特点就是虽然参数在过滤后会添加 “\” 进行转义，但是“\”并不会插入到数据库中，在写入数据库的时候还是保留了原来的数据。</li>
+<li>在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中取出了脏数据，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
 </ul>
-<ol>
-<li>每天凌晨2：10备份数据库 *** 到&#x2F;data&#x2F;backup&#x2F;db</li>
-<li>备份开始和备份结束能够给出相应的提示信息。</li>
-<li>备份后的文件要求以备份时间为文件名，并打包成.tar.gz的形式，比如：2022-06-28_154450.tar.gz</li>
-<li>在备份的同时，检查是否有10天前备份的数据库文件，如果有就将其删除。</li>
-</ol>
-<span id="more"></span>
-
-<h2 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h2><pre><code><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-comment">#完成数据库的定时备份</span><br><span class="hljs-comment">#路径的备份</span><br>BACKUP=/data/backup/db<br><span class="hljs-comment">#当前的时间作为文件名</span><br>DATATIME=$(<span class="hljs-built_in">date</span>)<br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$DATATIME</span><br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;===========开始备份=============&quot;</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;==========备份的路径是 <span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span>.tar.gz&quot;</span><br><br><span class="hljs-comment">#主机</span><br>HOST=localhost<br><span class="hljs-comment">#用户名</span><br>DB_USER=root<br><span class="hljs-comment">#密码</span><br>DB_PWD=root<br><span class="hljs-comment">#备份数据库名</span><br>DATABASE=数据库名<br><span class="hljs-comment">#创建备份的路径</span><br><span class="hljs-comment">#如果备份的路径文件夹存在，就使用，否则就创建</span><br>[ ! -d <span class="hljs-string">&quot;BACKUP/<span class="hljs-variable">$DATETIME</span>&quot;</span> ] &amp;&amp; <span class="hljs-built_in">mkdir</span> -p <span class="hljs-string">&quot;<span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span>&quot;</span><br><span class="hljs-comment">#执行mysql的备份数据库指令</span><br>mysqldump -u<span class="hljs-variable">$&#123;DB_USER&#125;</span> -p<span class="hljs-variable">$&#123;DB_PWD&#125;</span> --host=<span class="hljs-variable">$HOST</span> <span class="hljs-variable">$DATABASE</span> | gzip &gt; <span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span>/<span class="hljs-variable">$DATETIME</span>.sql.gz<br><span class="hljs-comment">#打包备份文件</span><br><span class="hljs-built_in">cd</span> <span class="hljs-variable">$BACKUP</span><br>tar -zcvf <span class="hljs-variable">$DATETIME</span>.tar.gz <span class="hljs-variable">$DATETIME</span><br><span class="hljs-comment">#删除临时目录</span><br><span class="hljs-built_in">rm</span> -rf <span class="hljs-variable">$BACKUP</span>/<span class="hljs-variable">$DATETIME</span><br><br><span class="hljs-comment">#删除十天前的备份文件</span><br>find <span class="hljs-variable">$BACKUP</span> -mtime +10 -name <span class="hljs-string">&quot;*. tar. gz&quot;</span> -<span class="hljs-built_in">exec</span> <span class="hljs-built_in">rm</span> -rf &#123;&#125; \;<br></code></pre></td></tr></table></figure>
-</code></pre>
-<h2 id="在crontab中的配置"><a href="#在crontab中的配置" class="headerlink" title="在crontab中的配置"></a>在crontab中的配置</h2><pre><code><figure class="highlight basic"><table><tr><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">10 </span><span class="hljs-number">2</span> * * * /<span class="hljs-keyword">usr</span>/sbin/mysql_db_backup.sh<br></code></pre></td></tr></table></figure>
+<p><strong>可以用来</strong>(<font color="red">绕过转义注入和魔术引号</font>)</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code><figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">注册用户: insert xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>过滤: xiaojian <span class="hljs-keyword">select</span>\&#x27; <span class="hljs-built_in">union</span><br>进入数据库: xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>修改用户: <span class="hljs-keyword">update</span> xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br></code></pre></td></tr></table></figure>
 </code></pre>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>shell</tag>
+        <tag>Sql Inject</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回归</title>
+    <url>/2023/03/31/%E5%9B%9E%E5%BD%92/</url>
+    <content><![CDATA[<h2 id="I’m-back"><a href="#I’m-back" class="headerlink" title="I’m back!"></a>I’m back!</h2>]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>动态</tag>
       </tags>
   </entry>
 </search>
