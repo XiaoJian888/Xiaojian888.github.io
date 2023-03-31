@@ -114,6 +114,28 @@
       </tags>
   </entry>
   <entry>
+    <title>CSRF</title>
+    <url>/2022/04/03/csrf/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>介绍CSRF相关内容</p>
+<span id="more"></span>
+
+<h2 id="CSRF-跨站请求伪造-概述"><a href="#CSRF-跨站请求伪造-概述" class="headerlink" title="CSRF(跨站请求伪造)概述"></a>CSRF(跨站请求伪造)概述</h2><p>Cross-site request forgery 简称为“CSRF”，在CSRF的攻击场景中攻击者会伪造一个请求（这个请求一般是一个链接），然后欺骗目标用户进行点击，用户一旦点击了这个请求，整个攻击就完成了。所以CSRF攻击也成为”one click”攻击。</p>
+<p><img src="/../images/86d6277f9e2f0708efe75721e024b899a901f235.webp" alt="CSRF"></p>
+<h2 id="CSRF与XSS的区别"><a href="#CSRF与XSS的区别" class="headerlink" title="CSRF与XSS的区别"></a>CSRF与XSS的区别</h2><p>CSRF是借用户的权限完成攻击，攻击者并没有拿到用户的权限，而XSS是直接盗取到了用户的权限，然后实施破坏。</p>
+<h2 id="如何防止CSRF攻击"><a href="#如何防止CSRF攻击" class="headerlink" title="如何防止CSRF攻击"></a>如何防止CSRF攻击</h2><ul>
+<li>对敏感信息的操作增加安全的token；</li>
+<li>对敏感信息的操作增加安全的验证码；</li>
+<li>对敏感信息的操作实施安全的逻辑流程，比如修改密码时，需要先校验旧密码等。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>crsf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>shell编程备份数据库</title>
     <url>/2022/06/28/shell%E7%BC%96%E7%A8%8B%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
@@ -167,46 +189,6 @@
       </tags>
   </entry>
   <entry>
-    <title>二次注入 二次注入</title>
-    <url>/2022/04/13/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="二次注入原理"><a href="#二次注入原理" class="headerlink" title="二次注入原理"></a>二次注入原理</h2><ul>
-<li>二次注入的原理，在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，但是addslashes有一个特点就是虽然参数在过滤后会添加 “\” 进行转义，但是“\”并不会插入到数据库中，在写入数据库的时候还是保留了原来的数据。</li>
-<li>在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中取出了脏数据，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
-</ul>
-<p><strong>可以用来</strong>(<font color="red">绕过转义注入和魔术引号</font>)</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code><figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">注册用户: insert xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>过滤: xiaojian <span class="hljs-keyword">select</span>\&#x27; <span class="hljs-built_in">union</span><br>进入数据库: xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>修改用户: <span class="hljs-keyword">update</span> xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br></code></pre></td></tr></table></figure>
-</code></pre>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Sql Inject</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSRF</title>
-    <url>/2022/04/03/csrf/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>介绍CSRF相关内容</p>
-<span id="more"></span>
-
-<h2 id="CSRF-跨站请求伪造-概述"><a href="#CSRF-跨站请求伪造-概述" class="headerlink" title="CSRF(跨站请求伪造)概述"></a>CSRF(跨站请求伪造)概述</h2><p>Cross-site request forgery 简称为“CSRF”，在CSRF的攻击场景中攻击者会伪造一个请求（这个请求一般是一个链接），然后欺骗目标用户进行点击，用户一旦点击了这个请求，整个攻击就完成了。所以CSRF攻击也成为”one click”攻击。</p>
-<p><img src="/../images/86d6277f9e2f0708efe75721e024b899a901f235.webp" alt="CSRF"></p>
-<h2 id="CSRF与XSS的区别"><a href="#CSRF与XSS的区别" class="headerlink" title="CSRF与XSS的区别"></a>CSRF与XSS的区别</h2><p>CSRF是借用户的权限完成攻击，攻击者并没有拿到用户的权限，而XSS是直接盗取到了用户的权限，然后实施破坏。</p>
-<h2 id="如何防止CSRF攻击"><a href="#如何防止CSRF攻击" class="headerlink" title="如何防止CSRF攻击"></a>如何防止CSRF攻击</h2><ul>
-<li>对敏感信息的操作增加安全的token；</li>
-<li>对敏感信息的操作增加安全的验证码；</li>
-<li>对敏感信息的操作实施安全的逻辑流程，比如修改密码时，需要先校验旧密码等。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>crsf</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>博客搭建过程中所碰到的问题</title>
     <url>/2022/03/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%89%80%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="node-ji安装时碰到的问题"><a href="#node-ji安装时碰到的问题" class="headerlink" title="node.ji安装时碰到的问题"></a>node.ji安装时碰到的问题</h2><p>不要点安装附加工具那个选项！</p>
@@ -230,6 +212,24 @@
       </categories>
       <tags>
         <tag>问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二次注入 二次注入</title>
+    <url>/2022/04/13/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="二次注入原理"><a href="#二次注入原理" class="headerlink" title="二次注入原理"></a>二次注入原理</h2><ul>
+<li>二次注入的原理，在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，但是addslashes有一个特点就是虽然参数在过滤后会添加 “\” 进行转义，但是“\”并不会插入到数据库中，在写入数据库的时候还是保留了原来的数据。</li>
+<li>在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中取出了脏数据，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
+</ul>
+<p><strong>可以用来</strong>(<font color="red">绕过转义注入和魔术引号</font>)</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code><figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">注册用户: insert xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>过滤: xiaojian <span class="hljs-keyword">select</span>\&#x27; <span class="hljs-built_in">union</span><br>进入数据库: xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br>修改用户: <span class="hljs-keyword">update</span> xiaojian <span class="hljs-keyword">select</span>&#x27; <span class="hljs-built_in">union</span><br></code></pre></td></tr></table></figure>
+</code></pre>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Sql Inject</tag>
       </tags>
   </entry>
 </search>
