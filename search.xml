@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>linux命令</title>
+    <url>/2022/04/03/2022-04-03/</url>
+    <content><![CDATA[<h2 id="limux命令"><a href="#limux命令" class="headerlink" title="limux命令"></a>limux命令</h2><h3 id="96-96"><a href="#96-96" class="headerlink" title="&#96;&#96;"></a>&#96;&#96;</h3><p>linux中将&#96;&#96;(反引号)里的内容作为系统命令来执行。</p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上。</p>
+<h3 id="tac"><a href="#tac" class="headerlink" title="tac"></a>tac</h3><p><em><strong>cat</strong></em>  倒过来写的，作用是将文件全部内容从尾到头反向连续输出到标准输出(屏幕)上。</p>
+<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>Linux pwd（英文全拼：print work directory） 命令用于显示工作目录。</p>
+<ul>
+<li>执行 pwd 指令可立刻得知您目前所在的工作目录的绝对路径名称。</li>
+</ul>
+<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>Linux ls（英文全拼：list files）命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>Linux id命令用于显示用户的ID，以及所属群组的ID。</p>
+<ul>
+<li>id会显示用户以及所属群组的实际与有效ID。若两个ID相同，则仅显示实际ID。若仅指定用户名称，则显示目前用户的ID。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>理解NAT模式和桥接模式</title>
     <url>/2022/04/06/2022-04-06/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>实验室电脑搭建靶机过程中，面临两个网络配置的选择：</p>
@@ -27,6 +50,17 @@
       </categories>
       <tags>
         <tag>Virtual Machine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回归</title>
+    <url>/2023/03/31/2023-03-31/</url>
+    <content><![CDATA[<h2 id="I’m-back"><a href="#I’m-back" class="headerlink" title="I’m back!"></a>I’m back!</h2>]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>动态</tag>
       </tags>
   </entry>
   <entry>
@@ -91,35 +125,9 @@
       </tags>
   </entry>
   <entry>
-    <title>linux命令</title>
-    <url>/2022/04/03/2022-04-03/</url>
-    <content><![CDATA[<h2 id="limux命令"><a href="#limux命令" class="headerlink" title="limux命令"></a>limux命令</h2><h3 id="96-96"><a href="#96-96" class="headerlink" title="&#96;&#96;"></a>&#96;&#96;</h3><p>linux中将&#96;&#96;(反引号)里的内容作为系统命令来执行。</p>
-<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上。</p>
-<h3 id="tac"><a href="#tac" class="headerlink" title="tac"></a>tac</h3><p><em><strong>cat</strong></em>  倒过来写的，作用是将文件全部内容从尾到头反向连续输出到标准输出(屏幕)上。</p>
-<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>Linux pwd（英文全拼：print work directory） 命令用于显示工作目录。</p>
-<ul>
-<li>执行 pwd 指令可立刻得知您目前所在的工作目录的绝对路径名称。</li>
-</ul>
-<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>Linux ls（英文全拼：list files）命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
-<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>Linux id命令用于显示用户的ID，以及所属群组的ID。</p>
-<ul>
-<li>id会显示用户以及所属群组的实际与有效ID。若两个ID相同，则仅显示实际ID。若仅指定用户名称，则显示目前用户的ID。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>回归</title>
-    <url>/2022/03/31/2023-03-31/</url>
-    <content><![CDATA[<h2 id="我回来了"><a href="#我回来了" class="headerlink" title="我回来了"></a>我回来了</h2>]]></content>
-      <categories>
-        <category>日志</category>
-      </categories>
+    <title>我的博客搭建成功啦！</title>
+    <url>/2022/03/25/hello-world/</url>
+    <content><![CDATA[]]></content>
       <tags>
         <tag>动态</tag>
       </tags>
@@ -147,11 +155,29 @@
       </tags>
   </entry>
   <entry>
-    <title>我的博客搭建成功啦！</title>
-    <url>/2022/03/25/hello-world/</url>
-    <content><![CDATA[]]></content>
+    <title>博客搭建过程中所碰到的问题</title>
+    <url>/2022/03/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%89%80%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="node-ji安装时碰到的问题"><a href="#node-ji安装时碰到的问题" class="headerlink" title="node.ji安装时碰到的问题"></a>node.ji安装时碰到的问题</h2><p>不要点安装附加工具那个选项！</p>
+<hr>
+<h2 id="npm安装hexo时遇到的问题"><a href="#npm安装hexo时遇到的问题" class="headerlink" title="npm安装hexo时遇到的问题"></a>npm安装hexo时遇到的问题</h2><ol>
+<li>人们遇到最多的是连接不成功的问题，换<strong>镜像</strong>下载就可以了。</li>
+<li>我在安装过程中遇到的问题是：需要管理员权限才能安装，解决方法：<ul>
+<li>在开始菜单下找到 Git Bash,右键以管理员身份运行。</li>
+<li>然后切换目录到 Blog 的根目录下即可进行 hexo 的安装。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="切换-next-主题时遇到的问题"><a href="#切换-next-主题时遇到的问题" class="headerlink" title="切换 next 主题时遇到的问题"></a>切换 next 主题时遇到的问题</h2><p>按操作换为 next 主题后，页面出现乱码，解决办法：<br>hexo在5.0之后把 swig 给删除了需要自己手动安装:<br>    <figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs Markdown">npm i hexo-renderer-swig<br></code></pre></td></tr></table></figure></p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/lanhualan/p/14588669.html">https://www.cnblogs.com/lanhualan/p/14588669.html</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
       <tags>
-        <tag>动态</tag>
+        <tag>问题</tag>
       </tags>
   </entry>
   <entry>
@@ -170,6 +196,25 @@
       </categories>
       <tags>
         <tag>Sql Inject</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sql注入——注释相关</title>
+    <url>/2022/07/04/sql%E6%B3%A8%E5%85%A5%E6%B3%A8%E9%87%8A%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SQL注入中，注释#、 –+、 –%20、 %23</p>
+<span id="more"></span>
+<ol>
+<li><h1 id="和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。"><a href="#和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。" class="headerlink" title="和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。"></a>和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。</h1></li>
+<li>也可以使用–%20，把空格转换为urlencode编码格式，也不会报错。同理把#变成%23,也不报错。</li>
+<li>如果是post请求，则可以直接使用#来进行闭合。常见的就是表单注入，如我们在后台登录框中进行注入。</li>
+<li>为什么–后面必须要有空格，而#后面就不需要？<br>因为使用–注释时，需要使用空格，才能形成有效的sql语句，而#后面可以有空格，也可以没有，sql就是这么规定的，记住就行了。<br>因为不加空格，–直接和系统自动生成的单引号连接在了一起，会被认为是一个关键词，无法注释掉系统自动生成的单引号。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>sql注入</category>
+      </categories>
+      <tags>
+        <tag>MySQL注释符</tag>
       </tags>
   </entry>
   <entry>
@@ -196,51 +241,6 @@
       </categories>
       <tags>
         <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sql注入——注释相关</title>
-    <url>/2022/07/04/sql%E6%B3%A8%E5%85%A5%E6%B3%A8%E9%87%8A%E7%AC%A6/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SQL注入中，注释#、 –+、 –%20、 %23</p>
-<span id="more"></span>
-<ol>
-<li><h1 id="和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。"><a href="#和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。" class="headerlink" title="和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。"></a>和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。</h1></li>
-<li>也可以使用–%20，把空格转换为urlencode编码格式，也不会报错。同理把#变成%23,也不报错。</li>
-<li>如果是post请求，则可以直接使用#来进行闭合。常见的就是表单注入，如我们在后台登录框中进行注入。</li>
-<li>为什么–后面必须要有空格，而#后面就不需要？<br>因为使用–注释时，需要使用空格，才能形成有效的sql语句，而#后面可以有空格，也可以没有，sql就是这么规定的，记住就行了。<br>因为不加空格，–直接和系统自动生成的单引号连接在了一起，会被认为是一个关键词，无法注释掉系统自动生成的单引号。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>sql注入</category>
-      </categories>
-      <tags>
-        <tag>MySQL注释符</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客搭建过程中所碰到的问题</title>
-    <url>/2022/03/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%89%80%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="node-ji安装时碰到的问题"><a href="#node-ji安装时碰到的问题" class="headerlink" title="node.ji安装时碰到的问题"></a>node.ji安装时碰到的问题</h2><p>不要点安装附加工具那个选项！</p>
-<hr>
-<h2 id="npm安装hexo时遇到的问题"><a href="#npm安装hexo时遇到的问题" class="headerlink" title="npm安装hexo时遇到的问题"></a>npm安装hexo时遇到的问题</h2><ol>
-<li>人们遇到最多的是连接不成功的问题，换<strong>镜像</strong>下载就可以了。</li>
-<li>我在安装过程中遇到的问题是：需要管理员权限才能安装，解决方法：<ul>
-<li>在开始菜单下找到 Git Bash,右键以管理员身份运行。</li>
-<li>然后切换目录到 Blog 的根目录下即可进行 hexo 的安装。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="切换-next-主题时遇到的问题"><a href="#切换-next-主题时遇到的问题" class="headerlink" title="切换 next 主题时遇到的问题"></a>切换 next 主题时遇到的问题</h2><p>按操作换为 next 主题后，页面出现乱码，解决办法：<br>hexo在5.0之后把 swig 给删除了需要自己手动安装:<br>    <figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs Markdown">npm i hexo-renderer-swig<br></code></pre></td></tr></table></figure></p>
-<blockquote>
-<p><a href="https://www.cnblogs.com/lanhualan/p/14588669.html">https://www.cnblogs.com/lanhualan/p/14588669.html</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>日志</category>
-      </categories>
-      <tags>
-        <tag>问题</tag>
       </tags>
   </entry>
 </search>
