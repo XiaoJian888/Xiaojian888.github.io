@@ -6,7 +6,7 @@
   <link href="http://xiaojian.com/atom.xml" rel="self"/>
   
   <link href="http://xiaojian.com/"/>
-  <updated>2022-06-28T08:21:10.537Z</updated>
+  <updated>2022-07-04T12:52:56.790Z</updated>
   <id>http://xiaojian.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sql注入——注释相关</title>
+    <link href="http://xiaojian.com/2022/07/04/sql%E6%B3%A8%E5%85%A5%E6%B3%A8%E9%87%8A%E7%AC%A6/"/>
+    <id>http://xiaojian.com/2022/07/04/sql%E6%B3%A8%E5%85%A5%E6%B3%A8%E9%87%8A%E7%AC%A6/</id>
+    <published>2022-07-04T12:48:00.000Z</published>
+    <updated>2022-07-04T12:52:56.790Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SQL注入中，注释#、 –+、 –%20、 %23</p><span id="more"></span><ol><li><h1 id="和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。"><a href="#和-–-（有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求-记住是get请求，也就是我们在浏览器中输入的url-，解释执行的时候，url中-号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括-，因此使用-闭合无法注释，会报错；而使用–-（有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–-的方式来闭合，因为-会被解释成空格。" class="headerlink" title="和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。"></a>和 – （有个空格）表示注释，可以使它们后面的语句不被执行。在url中，如果是get请求**(记住是get请求，也就是我们在浏览器中输入的url)** ，解释执行的时候，url中#号是用来指导浏览器动作的，对服务器端无用。所以，HTTP请求中不包括#，因此使用#闭合无法注释，会报错；而使用– （有个空格），在传输过程中空格会被忽略，同样导致无法注释，所以在get请求传参注入时才会使用–+的方式来闭合，因为+会被解释成空格。</h1></li><li>也可以使用–%20，把空格转换为urlencode编码格式，也不会报错。同理把#变成%23,也不报错。</li><li>如果是post请求，则可以直接使用#来进行闭合。常见的就是表单注入，如我们在后台登录框中进行注入。</li><li>为什么–后面必须要有空格，而#后面就不需要？<br>因为使用–注释时，需要使用空格，才能形成有效的sql语句，而#后面可以有空格，也可以没有，sql就是这么规定的，记住就行了。<br>因为不加空格，–直接和系统自动生成的单引号连接在了一起，会被认为是一个关键词，无法注释掉系统自动生成的单引号。</li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;SQL注入中，注释#、 –+、 –%20、 %23&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="sql注入" scheme="http://xiaojian.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="MySQL注释符" scheme="http://xiaojian.com/tags/MySQL%E6%B3%A8%E9%87%8A%E7%AC%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>shell编程备份数据库</title>
